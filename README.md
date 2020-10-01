@@ -1,6 +1,5 @@
 #### Jsp 모델2 블로그 프로젝트 
 
-![blog](https://blogfiles.pstatic.net/MjAyMDA2MDlfMTI4/MDAxNTkxNjkxMTQ0OTc1.ZudQ-BusaNf8ZMhcNaOF7h0mgvE3omcEvsQAMgs3d5sg.zL0kT_Qc0oLLe2jlPi1BmOFlpTJU1cLCevEeHlBPLpcg.PNG.getinthere/Screenshot_19.png)
 
 ## 오라클 12C 사용자 생성
 ```sql
@@ -49,7 +48,6 @@ CREATE TABLE reply(
 ```
 
 ## 스크린샷
-```
 ![image](https://user-images.githubusercontent.com/59795407/94826373-36486980-0442-11eb-9168-4bb9145f4896.png)
 ![image](https://user-images.githubusercontent.com/59795407/94826396-3ba5b400-0442-11eb-9dc1-1bb9713b87d0.png)
 ![image](https://user-images.githubusercontent.com/59795407/94826411-4102fe80-0442-11eb-8e93-e6d09e2e7b8a.png)
@@ -71,4 +69,3 @@ CREATE TABLE reply(
 ![image](https://user-images.githubusercontent.com/59795407/94826767-9dfeb480-0442-11eb-9bfd-fd386ee76497.png)
 ![image](https://user-images.githubusercontent.com/59795407/94826786-a35bff00-0442-11eb-8c10-66c142c94e3b.png)
 
-```
