@@ -1,4 +1,4 @@
-#### Jsp 모델2 블로그 프로젝트
+#### Jsp 모델2 블로그 프로젝트 
 
 ![blog](https://blogfiles.pstatic.net/MjAyMDA2MDlfMTI4/MDAxNTkxNjkxMTQ0OTc1.ZudQ-BusaNf8ZMhcNaOF7h0mgvE3omcEvsQAMgs3d5sg.zL0kT_Qc0oLLe2jlPi1BmOFlpTJU1cLCevEeHlBPLpcg.PNG.getinthere/Screenshot_19.png)
 
@@ -48,96 +48,27 @@ CREATE TABLE reply(
 );
 ```
 
-## 시퀀스
-```sql
-CREATE SEQUENCE USERS_SEQ
-  START WITH 1
-  INCREMENT BY 1;
-  
-CREATE SEQUENCE BOARD_SEQ
-  START WITH 1
-  INCREMENT BY 1;
-  
-CREATE SEQUENCE REPLY_SEQ
-  START WITH 1
-  INCREMENT BY 1;
+## 스크린샷
 ```
+![image](https://user-images.githubusercontent.com/59795407/94826373-36486980-0442-11eb-9168-4bb9145f4896.png)
+![image](https://user-images.githubusercontent.com/59795407/94826396-3ba5b400-0442-11eb-9dc1-1bb9713b87d0.png)
+![image](https://user-images.githubusercontent.com/59795407/94826411-4102fe80-0442-11eb-8e93-e6d09e2e7b8a.png)
+![image](https://user-images.githubusercontent.com/59795407/94826446-47917600-0442-11eb-8cbc-799ad14be04c.png)
+![image](https://user-images.githubusercontent.com/59795407/94826469-4d875700-0442-11eb-8aa3-7b22ba3ec610.png)
+![image](https://user-images.githubusercontent.com/59795407/94826497-5415ce80-0442-11eb-87f3-ed9478af630f.png)
+![image](https://user-images.githubusercontent.com/59795407/94826518-5a0baf80-0442-11eb-937c-2b07b5510fd3.png)
+![image](https://user-images.githubusercontent.com/59795407/94826535-5f68fa00-0442-11eb-99bb-94545364ac87.png)
+![image](https://user-images.githubusercontent.com/59795407/94826560-65f77180-0442-11eb-8bb1-d3b384c6793b.png)
+![image](https://user-images.githubusercontent.com/59795407/94826579-6abc2580-0442-11eb-9f06-f3733210f6d5.png)
+![image](https://user-images.githubusercontent.com/59795407/94826601-70197000-0442-11eb-9014-db174bb387af.png)
+![image](https://user-images.githubusercontent.com/59795407/94826617-77d91480-0442-11eb-9967-52db3e84f409.png)
+![image](https://user-images.githubusercontent.com/59795407/94826633-7c9dc880-0442-11eb-965b-3ee468d48661.png)
+![image](https://user-images.githubusercontent.com/59795407/94826649-81fb1300-0442-11eb-9053-5a44c10167a0.png)
+![image](https://user-images.githubusercontent.com/59795407/94826671-87585d80-0442-11eb-8d28-4d964e90c13a.png)
+![image](https://user-images.githubusercontent.com/59795407/94826711-8de6d500-0442-11eb-99cf-ec5d7f3731a6.png)
+![image](https://user-images.githubusercontent.com/59795407/94826729-93dcb600-0442-11eb-9b04-bfee6494878e.png)
+![image](https://user-images.githubusercontent.com/59795407/94826746-98a16a00-0442-11eb-931e-ff99f55a2f44.png)
+![image](https://user-images.githubusercontent.com/59795407/94826767-9dfeb480-0442-11eb-9bfd-fd386ee76497.png)
+![image](https://user-images.githubusercontent.com/59795407/94826786-a35bff00-0442-11eb-8c10-66c142c94e3b.png)
 
-## 페이징 쿼리
-```sql
-SELECT /*+ INDEX_DESC(BOARD SYS_C007969)*/id,
-userId, title, content, readCount, createDate
-FROM board
-OFFSET 0 ROWS FETCH NEXT 3 ROWS ONLY;
-```
-
-## 상세보기 댓글 디자인
-
-![blog](https://postfiles.pstatic.net/MjAyMDA2MTBfMjMw/MDAxNTkxNzcwMTQxMjA0.StpHO77_G9wEHPNxcrVG6VFPX1-GotrDxxIHjJSptWkg.HREIBlxtojTJZqd65Oa46lbpC-1q99pEgYuOlYWOnXAg.PNG.getinthere/Screenshot_24.png?type=w773)
-
-- css/styles.css
-```css
-.comment-wrapper .media-list {
-	max-height: 450px;
-	overflow: auto;
-}
-
-.comment-wrapper .media-list .media img {
-	width: 64px;
-	height: 64px;
-	border: 2px solid #e5e7e8;
-	border-radius: 30px;
-	margin-right: 25px;
-}
-
-.comment-wrapper .media-list .media {
-	border-bottom: 1px dashed #efefef;
-	margin-bottom: 25px;
-}
-```
-
-- include/nav.jsp
-```jsp
-<link href="/blog/css/styles.css" rel="stylesheet">
-```
-
-- board/detail.jsp
-```jsp
-<hr />
-	<!-- 댓글 박스 -->
-	<div class="row bootstrap snippets">
-		<div class="col-md-12">
-			<div class="comment-wrapper">
-				<div class="panel panel-info">
-					<div class="panel-heading m-2"><b>Comment</b></div>
-					<div class="panel-body">
-						<textarea class="form-control" placeholder="write a comment..." rows="3"></textarea>
-						<br>
-						<button type="button" class="btn btn-primary pull-right">댓글쓰기</button>
-						<div class="clearfix"></div>
-						<hr />
-						<!-- 댓글 리스트 시작-->
-						<ul class="media-list">
-						
-							<c:forEach begin="1" end="10">
-							<!-- 댓글 아이템 -->
-							<li class="media">	
-								<img src="https://bootdey.com/img/Content/user_1.jpg" alt="" class="img-circle">		
-								<div class="media-body">
-									<strong class="text-primary">@MartinoMont</strong>
-									<p>
-										Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet.
-									</p>
-								</div>
-							</li>
-							</c:forEach>
-						</ul>
-						<!-- 댓글 리스트 끝-->
-					</div>
-				</div>
-			</div>
-
-		</div>
-	</div>
-	<!-- 댓글 박스 끝 -->
 ```
